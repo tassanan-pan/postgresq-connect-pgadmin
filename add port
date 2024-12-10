@@ -1,0 +1,12 @@
+sudo firewall-cmd --zone=public --permanent --add-port=5432/tcp
+sudo firewall-cmd --reload
+sudo firewall-cmd --zone=public --list-all
+
+ตรวจสอบดูว่ามีการฟังไหมตาม port ที่เรา add
+sudo ss -tuln | grep 5432
+
+ผลลัพธ์
+
+[root@localhost data]# sudo ss -tuln | grep 5432
+tcp   LISTEN 0      244          0.0.0.0:5432      0.0.0.0:*          
+tcp   LISTEN 0      244             [::]:5432         [::]:* 
